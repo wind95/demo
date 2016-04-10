@@ -1,4 +1,4 @@
-																	Git学习心得
+﻿															Git学习心得
 1.Git简介
     git 是目前世界上最先进的分布式版本控制系统。Linus在1991年创建了开源的Linux，经过不断发展，已经成为最大的服务器系统软件。
 在2002年以前，世界各地的志愿者把源代码的文件通过diff的方式发给Linus，然后又Linus本人通过手工方式合并代码！
@@ -31,6 +31,27 @@ Ruby等等。
 	$ git add readme.txt //添加到暂存区
 	$ git commit -m "wrote a readme file"//把暂存区的所有内容提交到当前分支
 5.时光穿梭
-	
-
+	$ git status 命令查看当前仓库状态
+	$ git diff new.txt命令查看这次版本与上次版本有什么不同。	$ git log 查看历史提交日志
+	$ git reset -- hard HEAD^ 回退到上一版本
+	$ git reflog 记录你的每一次命令
+6.工作区和暂存区
+	工作区(Working Directory)：在电脑能看到的文件，比如：learngit就是一工作区
+	版本库(Repository):工作库有一个隐藏目录.git ,这个不算工作区，是GIt的版本库。
+        我们把文件往Git版本库里添加的时候，是分两步执行的：
+    1.用git add命令把文件添加进去，实际上就是把文件修改添加到暂存区；
+    2.用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。
+7.撤销修改
+	$ git checkout --file 可以丢弃工作区的修改
+	$ git reset head file 可以把暂存区的修改撤销掉	
+8.删除文件
+	$ git rm 用于删除一个文件。如果一个文件已经被提交到版本库，那么永远不用担心误删，但只能恢复文件到最新版本，会丢弃最新修改。
+9.远程仓库
+	第一步：创建SSH Key。$ ssh-keygen -t rsa -C "youremail@example.com"
+	第二步：登录GItHub，打开Account settings，“SSH key”页面，在Key文本框里粘贴id_rsa.pub文件内容。
+10.添加远程库
+	要关联一个远程库，使用命令$ git remote add origin git@server-name:path/repo-name.git 
+	关联后，使用命令$git push -u origin master 第一次推送master分支所有内容；
+	此后，每次本地提交后，只要有必要，就可以使用命令$git push origin master 推送最新修改。
+	分布式版本系统的最大好处之一就是在本地工作完全不需要考虑远程库的存在，也就是没有联网都可以正常工作，而SVN在没有联网的时候是拒绝干活的！
 
