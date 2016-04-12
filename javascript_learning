@@ -1,15 +1,44 @@
 			javascript学习笔记
 	1995年，网景公司凭借navigator浏览器成为web时代开启时最著名的第一代互联网公司。
-brendan Eich 在两周之内设计出了javascript语言。javascript 代码可以直接嵌入在网页的任何地方，不过通常是放在<head>中。
-第二种方法是吧JavaScript代码放到单独的.js文件，然后通过<script src="..."></script>引入这个文件。
-如果一个变量没有通过var 声明就被使用，那么该变量就会自动被声明为全局变量。
+brendan Eich 在两周之内设计出了javascript语言。javascript 代码可以直接嵌入在网页的任何地方，
+不过通常是放在<head>中。
+	第二种方法是吧JavaScript代码放到单独的.js文件，然后通过<script src="..."></script>引入
+这个文件。
+	如果一个变量没有通过var 声明就被使用，那么该变量就会自动被声明为全局变量。
 为避免这一缺陷，所有的JavaScript代码都应该使用strict模式。
 toUpperCase();把一个字符串全部变为大写。
 toLowerCase();把一个字符串全部变为小写。
 indexOf();会搜索指定字符串出现的位置。
 substring();返回指定索引区间的子串。
-		var s='hello,world';
+	var s='hello,world';
 		s.substring(0,5);//返回‘hello’
 		s.substring(7);//从索引7开始到结束，返回'world'
-
+		
+indexOf:	var arr=[10,20,'30','xyz'];
+		arr.indexOf(10);//元素10的索引为0
+		arr.indexOf(20);//元素20的索引为1
+slice:  slice()就是对应String的substring()版本，它截取Array的部分元素，然后返回一个新的array
+	var arr =['a','b','c','d','e','f'];
+	arr.alice(0,3);//从索引0开始，到3结束，但不包括3；['a','b','c'];
+	arr.slice(3);//从索引3开始到结束
+push和pop
+	push()向Array的末尾添加若干元素，，pop()则吧Array的最后一个元素删除掉
+unshift和shift
+	如果要往Array的头部添加若干元素，使用unshif()方法，shift()方法则把Array的第一个元素删掉
+sort
+	sort()可以对当前Array进行排序，它会直接修改当前array的元素位置，直接调用时，按照默认顺序排序；
+reverse
+	reverse()把整个array的元素反转；
+splice
+	此方法可以从指定的索引开始删除若干元素，然后再从该位置添加若干元素；
+concat
+	concat()方法把当前的Array和另一个Array链接起来，并返回一个新的Array
+	var arr=['a','b','c'];
+	arr.concat(1,2,[3,4]);//['a','b','c',1,2,3,4];
+join
+	var arr =['a','b','c',1,2,3]
+	arr.join('-');//'a-b-c-1-2-3
+多位数组
+	var arr =[[1,2,3],[455,222[444],'-'];
+	alert(arr[1][2]);//调用
 
